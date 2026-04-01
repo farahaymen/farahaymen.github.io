@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import {
   Mail,
   GraduationCap,
@@ -338,6 +339,35 @@ function PublicationCard({
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+function SkillGroupCard({
+  group,
+}: {
+  group: string[];
+}) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 xl:flex xl:h-full xl:items-stretch">
+      <div className="grid w-full gap-4 sm:grid-cols-2 xl:h-full xl:grid-rows-3">
+        {group.map((skill, index) => {
+          const isOddLastItem = group.length % 2 === 1 && index === group.length - 1;
+
+          return (
+            <Badge
+              key={skill}
+              variant="secondary"
+              className={cn(
+                "h-14 w-full justify-center rounded-2xl border border-slate-200 bg-white px-4 text-center text-[0.92rem] leading-snug font-medium whitespace-normal text-slate-700 hover:bg-white xl:h-full xl:min-h-[5rem] xl:text-[1rem]",
+                isOddLastItem && "sm:col-span-2"
+              )}
+            >
+              {skill}
+            </Badge>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
@@ -763,22 +793,7 @@ export default function FarahAymenPortfolio() {
             </CardHeader>
             <CardContent className="grid flex-1 gap-4 sm:grid-cols-2 xl:auto-rows-fr xl:content-stretch">
               {skillGroups.map((group, i) => (
-                <div
-                  key={i}
-                  className="rounded-3xl border border-slate-200 bg-slate-50 p-5 xl:flex xl:h-full xl:items-center"
-                >
-                  <div className="grid w-full gap-3 sm:grid-cols-2 xl:content-center">
-                    {group.map((skill) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="h-10 w-full justify-center rounded-2xl border border-slate-200 bg-white px-3 text-[0.8rem] text-slate-700 hover:bg-white"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+                <SkillGroupCard key={i} group={group} />
               ))}
             </CardContent>
           </Card>
