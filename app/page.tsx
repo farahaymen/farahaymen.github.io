@@ -22,7 +22,6 @@ import {
   ShieldCheck,
   Microscope,
   ArrowUpRight,
-  Cpu,
   BarChart3,
   Network,
   Globe,
@@ -595,47 +594,6 @@ export default function FarahAymenPortfolio() {
         </section>
 
         <section className="mt-24">
-          <SectionHeading
-            eyebrow="Publication Highlights"
-            title="Selected papers and what they show"
-            text="The emphasis here is not only on titles, but on the concrete research signal behind each paper: methodology, result, and why it matters for doctoral work."
-          />
-          <div className="mt-10 grid gap-6 xl:grid-cols-2 2xl:grid-cols-3">
-            {publications.map((item) => (
-              <PublicationCard key={item.title} item={item} />
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-24 grid gap-8">
-          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-slate-900">
-                <Cpu className="h-5 w-5 text-slate-700" />
-                Research Signal
-              </CardTitle>
-              <CardDescription className="text-slate-500">
-                Why this portfolio is PhD-strong
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-4 text-[0.95rem] leading-8 text-slate-600 md:grid-cols-2 2xl:grid-cols-4">
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-                Quantitative work in approximation-driven architecture design.
-              </div>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-                Evidence across time series, vision, generative AI, medical AI, and
-                graph learning.
-              </div>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-                Strong academic indicators: 4.0 GPA, valedictorian standing, Best
-                Paper distinction.
-              </div>
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-                Clear progression toward rigorous, theory-aware doctoral research.
-              </div>
-            </CardContent>
-          </Card>
-
           <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-slate-900">
@@ -751,6 +709,19 @@ export default function FarahAymenPortfolio() {
               </ResponsiveContainer>
             </CardContent>
           </Card>
+        </section>
+
+        <section className="mt-24">
+          <SectionHeading
+            eyebrow="Publication Highlights"
+            title="Selected papers and what they show"
+            text="The emphasis here is not only on titles, but on the concrete research signal behind each paper: methodology, result, and why it matters for doctoral work."
+          />
+          <div className="mt-10 grid gap-6 xl:grid-cols-2 2xl:grid-cols-3">
+            {publications.map((item) => (
+              <PublicationCard key={item.title} item={item} />
+            ))}
+          </div>
         </section>
 
         <section className="mt-24 grid gap-8 xl:grid-cols-[0.95fr_1.05fr] 2xl:grid-cols-[minmax(380px,0.8fr)_minmax(0,1.2fr)] 2xl:gap-10">
