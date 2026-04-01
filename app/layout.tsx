@@ -15,11 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Farah Aymen",
   description: "Farah Aymen portfolio",
-  icons: {
-    icon: "/farah_scholar.png",
-    shortcut: "/farah_scholar.png",
-    apple: "/farah_scholar.png",
-  },
 };
 
 export default function RootLayout({

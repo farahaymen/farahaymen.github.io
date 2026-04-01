@@ -54,11 +54,11 @@ const profile = {
   tagline:
     "I build mathematically grounded machine learning systems for time series, generative AI, multimodal learning, and interpretable architectures.",
   bio:
-    "M.Sc. in Artificial Intelligence with First Class Honors (GPA 4.0, Valedictorian), following a 4.0 GPA in my undergraduate studies. My research centers on representation learning, approximation-driven neural architectures, and robust model design across structured and sequential data.",
+    "M.Sc. in Artificial Intelligence with First Class Honors (GPA 4.0, Valedictorian). My research centers on representation learning, approximation-driven neural architectures, and robust model design across structured and sequential data.",
 };
 
 const quickStats = [
-  { label: "GPA", value: "4.0/4.0", note: "Undergrad & M.Sc." },
+  { label: "GPA", value: "4.0/4.0", note: "First Class Honors" },
   { label: "Award", value: "Best Paper", note: "FICTA 2025" },
   { label: "Research Focus", value: "SciML", note: "Approximation & efficiency" },
   { label: "Teaching", value: "AI, NLP, OS", note: "Labs, projects, mentoring" },
@@ -229,7 +229,7 @@ function SectionHeading({
       <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
         {title}
       </h2>
-      <p className="text-slate-600 leading-8">{text}</p>
+      <p className="text-[1.0625rem] leading-8 text-slate-600">{text}</p>
     </div>
   );
 }
@@ -266,12 +266,12 @@ function SidebarItem({
   const content = href ? (
     <a
       href={href}
-      className="text-sm leading-6 text-slate-700 transition-colors hover:text-slate-950"
+      className="text-[0.95rem] leading-7 text-slate-700 transition-colors hover:text-slate-950"
     >
       {value}
     </a>
   ) : (
-    <p className="text-sm leading-6 text-slate-700">{value}</p>
+    <p className="text-[0.95rem] leading-7 text-slate-700">{value}</p>
   );
 
   return (
@@ -321,8 +321,8 @@ function PublicationCard({
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
-        <p className="text-slate-600 leading-7">{item.summary}</p>
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+        <p className="text-[1.02rem] leading-8 text-slate-600">{item.summary}</p>
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-[0.95rem] leading-7 text-slate-700">
           {item.highlight}
         </div>
         <div className="flex flex-wrap gap-2">
@@ -369,13 +369,13 @@ export default function FarahAymenPortfolio() {
                   <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
                     {profile.name}
                   </h1>
-                  <p className="text-base leading-7 text-slate-700">{profile.role}</p>
+                  <p className="text-[1.0625rem] leading-8 text-slate-700">{profile.role}</p>
                   <p className="text-sm text-slate-500">{profile.location}</p>
                 </div>
               </div>
 
-              <p className="text-base leading-8 text-slate-700">{profile.tagline}</p>
-              <p className="text-sm leading-7 text-slate-600">{profile.bio}</p>
+              <p className="text-[1.0625rem] leading-8 text-slate-700">{profile.tagline}</p>
+              <p className="text-[0.95rem] leading-8 text-slate-600">{profile.bio}</p>
 
               <div className="grid gap-4 border-y border-slate-200 py-6 sm:grid-cols-2 lg:grid-cols-1">
                 <SidebarItem label="Location" value={profile.location} />
@@ -474,7 +474,7 @@ export default function FarahAymenPortfolio() {
                     <h3 className="text-lg font-semibold text-slate-900">
                       {area.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">
+                    <p className="mt-3 text-[0.95rem] leading-7 text-slate-600">
                       {area.text}
                     </p>
                   </CardContent>
@@ -503,7 +503,7 @@ export default function FarahAymenPortfolio() {
                 <h3 className="mt-3 text-2xl font-semibold text-slate-900">
                   Polynomial KANs that stay accurate while getting lighter
                 </h3>
-                <p className="mt-4 text-slate-600 leading-7">
+                <p className="mt-4 text-[1.02rem] leading-8 text-slate-600">
                   The core result: cubic Chebyshev and Hermite KANs preserve ECG
                   forecasting performance while cutting the computational burden
                   substantially relative to B-spline KANs.
@@ -625,15 +625,15 @@ export default function FarahAymenPortfolio() {
                 Why this portfolio is PhD-strong
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4 text-sm leading-7 text-slate-600">
+            <CardContent className="space-y-4 text-[0.95rem] leading-8 text-slate-600">
               <p>Quantitative work in approximation-driven architecture design.</p>
               <p>
                 Evidence across time series, vision, generative AI, medical AI, and
                 graph learning.
               </p>
               <p>
-                Strong academic indicators: 4.0 GPA in both undergraduate and
-                master&apos;s study, valedictorian standing, Best Paper distinction.
+                Strong academic indicators: 4.0 GPA, valedictorian standing, Best
+                Paper distinction.
               </p>
               <p>Clear progression toward rigorous, theory-aware doctoral research.</p>
             </CardContent>
@@ -740,7 +740,7 @@ export default function FarahAymenPortfolio() {
                   <h3 className="mt-1 text-lg font-semibold text-slate-900">
                     {item.title}
                   </h3>
-                  <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                  <ul className="mt-3 space-y-2 text-[0.95rem] leading-7 text-slate-600">
                     {item.bullets.map((bullet) => (
                       <li key={bullet}>• {bullet}</li>
                     ))}
@@ -791,7 +791,7 @@ export default function FarahAymenPortfolio() {
                   Looking for doctoral research positions in machine learning, AI, and
                   structured learning systems.
                 </h2>
-                <p className="mt-4 text-slate-600 leading-7">
+                <p className="mt-4 text-[1.02rem] leading-8 text-slate-600">
                   I am particularly interested in research environments that value
                   mathematical grounding, careful evaluation, interpretability, and
                   impactful machine learning applications.
