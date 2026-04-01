@@ -50,7 +50,7 @@ const profile = {
   email: "farah.a.monir@gmail.com",
   github: "https://github.com/farahaymen",
   scholar: "https://scholar.google.com/citations?user=MVng0zAAAAAJ&hl=en",
-  cv: "/files/Farah_Aymen_CV.pdf",
+  cv: "/files/farah_aymen_cv.pdf",
   tagline:
     "I build mathematically grounded machine learning systems for time series, generative AI, multimodal learning, and interpretable architectures.",
   bio:
@@ -577,8 +577,36 @@ export default function FarahAymenPortfolio() {
           </div>
         </section>
 
-        <section className="mt-24 grid gap-8 xl:grid-cols-3 2xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,0.82fr)] 2xl:gap-10">
-          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm xl:col-span-2">
+        <section className="mt-24 grid gap-8">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-slate-900">
+                <Cpu className="h-5 w-5 text-slate-700" />
+                Research Signal
+              </CardTitle>
+              <CardDescription className="text-slate-500">
+                Why this portfolio is PhD-strong
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-4 text-[0.95rem] leading-8 text-slate-600 md:grid-cols-2 2xl:grid-cols-4">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                Quantitative work in approximation-driven architecture design.
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                Evidence across time series, vision, generative AI, medical AI, and
+                graph learning.
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                Strong academic indicators: 4.0 GPA, valedictorian standing, Best
+                Paper distinction.
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                Clear progression toward rigorous, theory-aware doctoral research.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-slate-900">
                 <ShieldCheck className="h-5 w-5 text-slate-700" />
@@ -588,7 +616,7 @@ export default function FarahAymenPortfolio() {
                 Spatial versus wavelet-domain performance
               </CardDescription>
             </CardHeader>
-            <CardContent className="h-[320px] p-2 pr-6">
+            <CardContent className="h-[320px] p-2 pr-6 2xl:h-[360px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={deepfakeResults}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
@@ -612,30 +640,6 @@ export default function FarahAymenPortfolio() {
                   <Bar dataKey="accuracy" radius={[10, 10, 0, 0]} fill="#475569" />
                 </BarChart>
               </ResponsiveContainer>
-            </CardContent>
-          </Card>
-
-          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-slate-900">
-                <Cpu className="h-5 w-5 text-slate-700" />
-                Research Signal
-              </CardTitle>
-              <CardDescription className="text-slate-500">
-                Why this portfolio is PhD-strong
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4 text-[0.95rem] leading-8 text-slate-600">
-              <p>Quantitative work in approximation-driven architecture design.</p>
-              <p>
-                Evidence across time series, vision, generative AI, medical AI, and
-                graph learning.
-              </p>
-              <p>
-                Strong academic indicators: 4.0 GPA, valedictorian standing, Best
-                Paper distinction.
-              </p>
-              <p>Clear progression toward rigorous, theory-aware doctoral research.</p>
             </CardContent>
           </Card>
         </section>
@@ -719,7 +723,7 @@ export default function FarahAymenPortfolio() {
           </Card>
         </section>
 
-        <section className="mt-24 grid gap-8 xl:grid-cols-[0.95fr_1.05fr] 2xl:grid-cols-[minmax(420px,0.9fr)_minmax(0,1.1fr)] 2xl:gap-10">
+        <section className="mt-24 grid gap-8 xl:grid-cols-[0.95fr_1.05fr] 2xl:grid-cols-[minmax(380px,0.8fr)_minmax(0,1.2fr)] 2xl:gap-10">
           <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
               <CardTitle className="text-slate-900">Experience Timeline</CardTitle>
@@ -757,18 +761,18 @@ export default function FarahAymenPortfolio() {
                 Methods, libraries, and research competencies
               </CardDescription>
             </CardHeader>
-            <CardContent className="grid gap-4 sm:grid-cols-2">
+            <CardContent className="grid flex-1 gap-4 sm:grid-cols-2 xl:auto-rows-fr xl:content-stretch">
               {skillGroups.map((group, i) => (
                 <div
                   key={i}
-                  className="rounded-3xl border border-slate-200 bg-slate-50 p-5"
+                  className="rounded-3xl border border-slate-200 bg-slate-50 p-5 xl:flex xl:h-full xl:items-center"
                 >
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid w-full gap-3 sm:grid-cols-2 xl:content-center">
                     {group.map((skill) => (
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="rounded-full bg-white text-slate-700 border border-slate-200 hover:bg-white"
+                        className="h-10 w-full justify-center rounded-2xl border border-slate-200 bg-white px-3 text-[0.8rem] text-slate-700 hover:bg-white"
                       >
                         {skill}
                       </Badge>
