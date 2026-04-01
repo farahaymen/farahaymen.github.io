@@ -346,15 +346,15 @@ export default function FarahAymenPortfolio() {
     <div className="relative min-h-screen bg-[#f7f8fb] text-slate-900 font-sans">
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#f8fafc_0%,#eef2f7_100%)]" />
 
-      <main className="mx-auto max-w-7xl px-6 py-8 md:px-8 lg:px-10 lg:py-10">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] xl:grid-cols-[minmax(0,390px)_minmax(0,1fr)]">
+      <main className="mx-auto w-full max-w-[1800px] px-6 py-8 md:px-8 lg:px-10 lg:py-10 xl:px-12 2xl:px-14">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)] xl:grid-cols-[minmax(0,380px)_minmax(0,1fr)] 2xl:grid-cols-[minmax(0,400px)_minmax(0,1fr)] 2xl:gap-14">
           <motion.aside
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="lg:sticky lg:top-8 lg:self-start"
           >
-            <div className="space-y-8 pb-6 lg:min-h-[calc(100vh-4rem)] lg:border-r lg:border-slate-200 lg:pr-8 xl:pr-10">
+            <div className="space-y-8 pb-6 lg:min-h-[calc(100vh-4rem)] lg:border-r lg:border-slate-200 lg:pr-8 xl:pr-10 2xl:pr-12">
               <div className="flex flex-wrap items-center gap-3">
                 <Badge className="rounded-full bg-slate-100 px-4 py-1 text-slate-700 hover:bg-slate-100">
                   AI Research Portfolio
@@ -434,8 +434,8 @@ export default function FarahAymenPortfolio() {
             </div>
           </motion.aside>
 
-          <div className="mt-10 lg:mt-0">
-            <section className="grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
+          <div className="mt-10 min-w-0 lg:mt-0">
+            <section className="grid gap-8 xl:grid-cols-2 xl:items-start 2xl:grid-cols-[minmax(0,1fr)_minmax(560px,0.92fr)] 2xl:gap-10">
               <SectionHeading
                 eyebrow="Academic Profile"
                 title="Assistant Lecturer and AI researcher focused on structured, interpretable machine learning"
@@ -484,7 +484,7 @@ export default function FarahAymenPortfolio() {
           </div>
         </section>
 
-        <section className="mt-24 grid gap-8 xl:grid-cols-[0.95fr_1.05fr]">
+        <section className="mt-24 grid gap-8 xl:grid-cols-2 2xl:grid-cols-[minmax(460px,0.95fr)_minmax(0,1.15fr)] 2xl:gap-10">
           <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-slate-900">
@@ -570,14 +570,14 @@ export default function FarahAymenPortfolio() {
             title="Selected papers and what they show"
             text="The emphasis here is not only on titles, but on the concrete research signal behind each paper: methodology, result, and why it matters for doctoral work."
           />
-          <div className="mt-10 grid gap-6 xl:grid-cols-2">
+          <div className="mt-10 grid gap-6 xl:grid-cols-2 2xl:grid-cols-3">
             {publications.map((item) => (
               <PublicationCard key={item.title} item={item} />
             ))}
           </div>
         </section>
 
-        <section className="mt-24 grid gap-8 xl:grid-cols-3">
+        <section className="mt-24 grid gap-8 xl:grid-cols-3 2xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,0.82fr)] 2xl:gap-10">
           <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm xl:col-span-2">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-slate-900">
@@ -719,7 +719,7 @@ export default function FarahAymenPortfolio() {
           </Card>
         </section>
 
-        <section className="mt-24 grid gap-8 xl:grid-cols-[0.9fr_1.1fr]">
+        <section className="mt-24 grid gap-8 xl:grid-cols-[0.95fr_1.05fr] 2xl:grid-cols-[minmax(420px,0.9fr)_minmax(0,1.1fr)] 2xl:gap-10">
           <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
               <CardTitle className="text-slate-900">Experience Timeline</CardTitle>
