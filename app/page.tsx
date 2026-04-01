@@ -45,28 +45,30 @@ import {
 
 const profile = {
   name: "Farah Aymen",
-  role: "AI Researcher • Assistant Lecturer • PhD Applicant",
+  role: "Assistant Lecturer • AI Researcher • PhD Applicant",
   location: "Cairo, Egypt",
   email: "farah.a.monir@gmail.com",
-  GitHub: "https://GitHub.com/farahaymen", // change this
+  github: "https://github.com/farahaymen",
+  scholar: "https://scholar.google.com/citations?user=MVng0zAAAAAJ&hl=en",
+  cv: "/files/Farah_Aymen_CV.pdf",
   tagline:
     "I build mathematically grounded machine learning systems for time series, generative AI, multimodal learning, and interpretable architectures.",
   bio:
-    "M.Sc. in Artificial Intelligence with First Class Honors (GPA 4.0, Valedictorian). My research centers on representation learning, approximation-driven neural architectures, and robust model design across structured and sequential data.",
+    "M.Sc. in Artificial Intelligence with First Class Honors (GPA 4.0, Valedictorian), following a 4.0 GPA in my undergraduate studies. My research centers on representation learning, approximation-driven neural architectures, and robust model design across structured and sequential data.",
 };
 
 const quickStats = [
-  { label: "GPA", value: "4.0/4.0", note: "First Class Honors" },
+  { label: "GPA", value: "4.0/4.0", note: "Undergrad & M.Sc." },
   { label: "Award", value: "Best Paper", note: "FICTA 2025" },
-  { label: "Research Focus", value: "KANs", note: "Approximation & efficiency" },
-  { label: "Teaching", value: "AI + NLP", note: "Labs, projects, mentoring" },
+  { label: "Research Focus", value: "SciML", note: "Approximation & efficiency" },
+  { label: "Teaching", value: "AI, NLP, OS", note: "Labs, projects, mentoring" },
 ];
 
 const researchAreas = [
   {
     title: "Structured Neural Architectures",
     text:
-      "Kolmogorov–Arnold Networks, polynomial basis substitutions, efficient approximation, and interpretable edge-wise function learning.",
+      "Kolmogorov-Arnold Networks, polynomial basis substitutions, efficient approximation, and interpretable edge-wise function learning.",
     icon: Network,
   },
   {
@@ -78,7 +80,7 @@ const researchAreas = [
   {
     title: "Vision & Multimodal AI",
     text:
-      "Deepfake detection, wavelet/frequency-domain representations, and transformer-based video understanding.",
+      "Deepfake detection, wavelet and frequency-domain representations, and transformer-based video understanding.",
     icon: ShieldCheck,
   },
   {
@@ -118,7 +120,7 @@ const publications = [
     title: "Large Vision Models: How Transformer-based Models excelled over Traditional Deep Learning Architectures in Video Processing",
     venue: "AIRC 2024",
     summary:
-      "Analyzed why transformer-based large vision models outperform traditional CNN/GAN pipelines in video summarization and prediction.",
+      "Analyzed why transformer-based large vision models outperform traditional CNN and GAN pipelines in video summarization and prediction.",
     highlight:
       "Frames a strong research narrative around long-range dependency modeling in visual data.",
     tags: ["Vision Transformers", "Video Processing", "LVMs"],
@@ -197,15 +199,15 @@ const experience = [
     period: "Ongoing",
     title: "Teaching and Academic Mentoring",
     bullets: [
-      "Assistant Lecturer in AI-related modules with hands-on teaching in ML, NLP, and programming.",
+      "Assistant Lecturer in AI-related modules with hands-on teaching in machine learning, NLP, and programming.",
       "Mentoring student projects and designing technically rigorous applied AI learning experiences.",
     ],
   },
 ];
 
 const skillGroups = [
-  ["Python", "PyTorch", "Tensorflow", "JAX", "Equinox", "Optax"],
-  ["Transformers", "LLMs", "RAG", "LangChain", "Langgraph", "Langsmith"],
+  ["Python", "PyTorch", "TensorFlow", "JAX", "Equinox", "Optax"],
+  ["Transformers", "LLMs", "RAG", "LangChain", "LangGraph", "LangSmith"],
   ["Time Series", "Graph ML", "Generative AI", "Medical AI", "Computer Vision"],
   ["Experiment Design", "Interpretability", "Evaluation", "Academic Writing", "Teaching"],
 ];
@@ -221,13 +223,13 @@ function SectionHeading({
 }) {
   return (
     <div className="max-w-3xl space-y-3">
-      <p className="text-sm font-medium uppercase tracking-[0.25em] text-slate-400">
+      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
         {eyebrow}
       </p>
-      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">
+      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
         {title}
       </h2>
-      <p className="text-slate-300 leading-7">{text}</p>
+      <p className="text-slate-600 leading-8">{text}</p>
     </div>
   );
 }
@@ -242,13 +244,43 @@ function StatCard({
   note: string;
 }) {
   return (
-    <Card className="border-white/10 bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl">
+    <Card className="rounded-3xl border border-slate-200 bg-white shadow-sm">
       <CardContent className="p-6">
-        <p className="text-sm text-slate-400">{label}</p>
-        <p className="mt-2 text-3xl font-semibold text-white">{value}</p>
-        <p className="mt-1 text-sm text-slate-300">{note}</p>
+        <p className="text-sm text-slate-500">{label}</p>
+        <p className="mt-2 text-3xl font-semibold text-slate-900">{value}</p>
+        <p className="mt-1 text-sm text-slate-600">{note}</p>
       </CardContent>
     </Card>
+  );
+}
+
+function SidebarItem({
+  label,
+  value,
+  href,
+}: {
+  label: string;
+  value: string;
+  href?: string;
+}) {
+  const content = href ? (
+    <a
+      href={href}
+      className="text-sm leading-6 text-slate-700 transition-colors hover:text-slate-950"
+    >
+      {value}
+    </a>
+  ) : (
+    <p className="text-sm leading-6 text-slate-700">{value}</p>
+  );
+
+  return (
+    <div className="space-y-1">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+        {label}
+      </p>
+      {content}
+    </div>
   );
 }
 
@@ -266,39 +298,39 @@ function PublicationCard({
   };
 }) {
   return (
-    <Card className="h-full rounded-3xl border-white/10 bg-white/[0.04] shadow-xl">
+    <Card className="h-full rounded-3xl border border-slate-200 bg-white shadow-sm">
       <CardHeader className="space-y-4">
         <div className="flex flex-wrap items-center gap-3">
-          <Badge className="rounded-full bg-white/10 text-slate-100 hover:bg-white/10">
+          <Badge className="rounded-full bg-slate-100 text-slate-700 hover:bg-slate-100">
             {item.year}
           </Badge>
           <Badge
             variant="outline"
-            className="rounded-full border-white/15 text-slate-300"
+            className="rounded-full border-slate-300 text-slate-600"
           >
             {item.type}
           </Badge>
         </div>
         <div>
-          <CardTitle className="text-xl leading-7 text-white">
+          <CardTitle className="text-xl leading-7 text-slate-900">
             {item.title}
           </CardTitle>
-          <CardDescription className="pt-2 text-slate-400">
+          <CardDescription className="pt-2 text-slate-500">
             {item.venue}
           </CardDescription>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
-        <p className="text-slate-300 leading-7">{item.summary}</p>
-        <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-4 text-sm text-cyan-50">
+        <p className="text-slate-600 leading-7">{item.summary}</p>
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
           {item.highlight}
         </div>
         <div className="flex flex-wrap gap-2">
-          {item.tags.map((tag) => (
+          {item.tags.map((tag: string) => (
             <Badge
               key={tag}
               variant="secondary"
-              className="rounded-full bg-slate-800 text-slate-200"
+              className="rounded-full bg-slate-100 text-slate-700 hover:bg-slate-100"
             >
               {tag}
             </Badge>
@@ -311,95 +343,121 @@ function PublicationCard({
 
 export default function FarahAymenPortfolio() {
   return (
-    <div className="min-h-screen bg-[#06111f] text-slate-100">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_30%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.18),transparent_25%),linear-gradient(180deg,#06111f_0%,#081423_45%,#020617_100%)]" />
+    <div className="relative min-h-screen bg-[#f7f8fb] text-slate-900 font-sans">
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#f8fafc_0%,#eef2f7_100%)]" />
 
-      <main className="mx-auto max-w-7xl px-6 py-10 md:px-8 lg:px-10">
-        <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-stretch">
-          <motion.div
+      <main className="mx-auto max-w-7xl px-6 py-8 md:px-8 lg:px-10 lg:py-10">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] xl:grid-cols-[minmax(0,390px)_minmax(0,1fr)]">
+          <motion.aside
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-8 shadow-2xl backdrop-blur-xl md:p-10"
+            className="lg:sticky lg:top-8 lg:self-start"
           >
-            <div className="flex flex-wrap items-center gap-3">
-              <Badge className="rounded-full bg-cyan-400/15 px-4 py-1 text-cyan-100 hover:bg-cyan-400/15">
-                PhD Application Portfolio
-              </Badge>
-              <Badge
-                variant="outline"
-                className="rounded-full border-white/15 px-4 py-1 text-slate-300"
-              >
-                AI Research • Approximation • Time Series
-              </Badge>
-            </div>
-
-            <div className="mt-8 flex items-start gap-5">
-              <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-cyan-400/80 to-violet-500/80 text-2xl font-semibold text-white shadow-xl">
-                FA
+            <div className="space-y-8 pb-6 lg:min-h-[calc(100vh-4rem)] lg:border-r lg:border-slate-200 lg:pr-8 xl:pr-10">
+              <div className="flex flex-wrap items-center gap-3">
+                <Badge className="rounded-full bg-slate-100 px-4 py-1 text-slate-700 hover:bg-slate-100">
+                  AI Research Portfolio
+                </Badge>
               </div>
-              <div className="space-y-2">
-                <h1 className="text-4xl font-semibold tracking-tight text-white md:text-6xl">
-                  {profile.name}
-                </h1>
-                <p className="text-lg text-cyan-100 md:text-xl">{profile.role}</p>
-                <p className="text-sm text-slate-400">{profile.location}</p>
+
+              <div className="flex items-start gap-5">
+                <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-900 text-2xl font-semibold text-white shadow-sm">
+                  FA
+                </div>
+                <div className="space-y-2">
+                  <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
+                    {profile.name}
+                  </h1>
+                  <p className="text-base leading-7 text-slate-700">{profile.role}</p>
+                  <p className="text-sm text-slate-500">{profile.location}</p>
+                </div>
+              </div>
+
+              <p className="text-base leading-8 text-slate-700">{profile.tagline}</p>
+              <p className="text-sm leading-7 text-slate-600">{profile.bio}</p>
+
+              <div className="grid gap-4 border-y border-slate-200 py-6 sm:grid-cols-2 lg:grid-cols-1">
+                <SidebarItem label="Location" value={profile.location} />
+                <SidebarItem
+                  label="Email"
+                  value={profile.email}
+                  href={`mailto:${profile.email}`}
+                />
+                <SidebarItem
+                  label="Research Focus"
+                  value="Structured neural architectures, time-series modeling, and generative AI."
+                />
+                <SidebarItem
+                  label="Current Goal"
+                  value="Doctoral research opportunities in machine learning, AI, and structured learning systems."
+                />
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <Button
+                  className="rounded-xl bg-slate-900 text-white hover:bg-slate-800"
+                  asChild
+                >
+                  <a href={`mailto:${profile.email}`}>
+                    <Mail className="mr-2 h-4 w-4" /> Contact
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="rounded-xl border-slate-300 bg-white text-slate-800 hover:bg-slate-50"
+                  asChild
+                >
+                  <a href={profile.cv} target="_blank" rel="noreferrer">
+                    View CV
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="rounded-xl border-slate-300 bg-white text-slate-800 hover:bg-slate-50"
+                  asChild
+                >
+                  <a href={profile.github} target="_blank" rel="noreferrer">
+                    <Globe className="mr-2 h-4 w-4" /> GitHub
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="rounded-xl border-slate-300 bg-white text-slate-800 hover:bg-slate-50"
+                  asChild
+                >
+                  <a href={profile.scholar} target="_blank" rel="noreferrer">
+                    <BookOpen className="mr-2 h-4 w-4" /> Scholar
+                  </a>
+                </Button>
               </div>
             </div>
+          </motion.aside>
 
-            <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-200">
-              {profile.tagline}
-            </p>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
-              {profile.bio}
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button
-                className="rounded-2xl bg-cyan-400 text-slate-950 hover:bg-cyan-300"
-                asChild
+          <div className="mt-10 lg:mt-0">
+            <section className="grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:items-start">
+              <SectionHeading
+                eyebrow="Academic Profile"
+                title="Assistant Lecturer and AI researcher focused on structured, interpretable machine learning"
+                text="My work combines strong academic training, teaching experience, and research across time-series modeling, generative AI, and multimodal learning, with an emphasis on mathematically grounded model design."
+              />
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.05 }}
+                className="grid gap-4 sm:grid-cols-2"
               >
-                <a href={`mailto:${profile.email}`}>
-                  <Mail className="mr-2 h-4 w-4" /> {profile.email}
-                </a>
-              </Button>
+                {quickStats.map((stat) => (
+                  <StatCard key={stat.label} {...stat} />
+                ))}
+              </motion.div>
+            </section>
 
-              <Button
-                variant="outline"
-                className="rounded-2xl border-white/15 bg-transparent text-slate-100 hover:bg-white/5"
-                asChild
-              >
-                <a href={profile.GitHub} target="_blank" rel="noreferrer">
-                  <Globe className="mr-2 h-4 w-4" /> GitHub
-                </a>
-              </Button>
-
-              <Button
-                variant="outline"
-                className="rounded-2xl border-white/15 bg-transparent text-slate-100 hover:bg-white/5"
-              >
-                <BookOpen className="mr-2 h-4 w-4" /> Publications
-              </Button>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2"
-          >
-            {quickStats.map((stat) => (
-              <StatCard key={stat.label} {...stat} />
-            ))}
-          </motion.div>
-        </section>
-
-        <section className="mt-20">
+        <section className="mt-24">
           <SectionHeading
-            eyebrow="Research Identity"
-            title="A portfolio designed for PhD selection committees"
-            text="This page is structured to make your profile legible in under a minute: clear academic positioning, quantitative research highlights, focused publication summaries, and visual evidence from your papers."
+            eyebrow="Research Focus"
+            title="Research spanning structured learning, forecasting, vision, and generative AI"
+            text="These are the areas that define my current research direction: efficient neural architectures, ECG and sequential modeling, deepfake detection, multimodal methods, and synthetic data generation for challenging datasets."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {researchAreas.map((area) => {
@@ -407,14 +465,16 @@ export default function FarahAymenPortfolio() {
               return (
                 <Card
                   key={area.title}
-                  className="rounded-3xl border-white/10 bg-white/[0.04] shadow-xl"
+                  className="rounded-3xl border border-slate-200 bg-white shadow-sm"
                 >
                   <CardContent className="p-6">
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
-                      <Icon className="h-6 w-6 text-cyan-200" />
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100">
+                      <Icon className="h-6 w-6 text-slate-700" />
                     </div>
-                    <h3 className="text-lg font-semibold text-white">{area.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      {area.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">
                       {area.text}
                     </p>
                   </CardContent>
@@ -425,25 +485,25 @@ export default function FarahAymenPortfolio() {
         </section>
 
         <section className="mt-24 grid gap-8 xl:grid-cols-[0.95fr_1.05fr]">
-          <Card className="rounded-[2rem] border-white/10 bg-white/[0.04] shadow-2xl">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-white">
-                <Trophy className="h-5 w-5 text-cyan-200" />
+              <CardTitle className="flex items-center gap-2 text-slate-900">
+                <Trophy className="h-5 w-5 text-slate-700" />
                 Featured Achievement
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-500">
                 Signature result from the KAN ECG forecasting work
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="rounded-3xl border border-emerald-400/20 bg-emerald-400/10 p-6">
-                <p className="text-sm uppercase tracking-[0.22em] text-emerald-100">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <p className="text-sm uppercase tracking-[0.22em] text-slate-500">
                   Best Paper • FICTA 2025
                 </p>
-                <h3 className="mt-3 text-2xl font-semibold text-white">
+                <h3 className="mt-3 text-2xl font-semibold text-slate-900">
                   Polynomial KANs that stay accurate while getting lighter
                 </h3>
-                <p className="mt-4 text-slate-200 leading-7">
+                <p className="mt-4 text-slate-600 leading-7">
                   The core result: cubic Chebyshev and Hermite KANs preserve ECG
                   forecasting performance while cutting the computational burden
                   substantially relative to B-spline KANs.
@@ -451,52 +511,53 @@ export default function FarahAymenPortfolio() {
               </div>
 
               <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-3xl border border-white/10 bg-slate-950/40 p-5">
-                  <p className="text-sm text-slate-400">Accuracy Gap</p>
-                  <p className="mt-2 text-3xl font-semibold text-white">≤ 2×10⁻⁴</p>
-                  <p className="mt-1 text-sm text-slate-300">MSE difference to B-splines</p>
+                <div className="rounded-3xl border border-slate-200 bg-white p-5">
+                  <p className="text-sm text-slate-500">Accuracy Gap</p>
+                  <p className="mt-2 text-3xl font-semibold text-slate-900">≤ 2×10⁻⁴</p>
+                  <p className="mt-1 text-sm text-slate-600">MSE difference to B-splines</p>
                 </div>
-                <div className="rounded-3xl border border-white/10 bg-slate-950/40 p-5">
-                  <p className="text-sm text-slate-400">Efficiency</p>
-                  <p className="mt-2 text-3xl font-semibold text-white">~50%</p>
-                  <p className="mt-1 text-sm text-slate-300">
+                <div className="rounded-3xl border border-slate-200 bg-white p-5">
+                  <p className="text-sm text-slate-500">Efficiency</p>
+                  <p className="mt-2 text-3xl font-semibold text-slate-900">~50%</p>
+                  <p className="mt-1 text-sm text-slate-600">
                     Fewer parameters and MACs
                   </p>
                 </div>
-                <div className="rounded-3xl border border-white/10 bg-slate-950/40 p-5">
-                  <p className="text-sm text-slate-400">Architecture</p>
-                  <p className="mt-2 text-3xl font-semibold text-white">3-layer</p>
-                  <p className="mt-1 text-sm text-slate-300">Comparative KAN topology</p>
+                <div className="rounded-3xl border border-slate-200 bg-white p-5">
+                  <p className="text-sm text-slate-500">Architecture</p>
+                  <p className="mt-2 text-3xl font-semibold text-slate-900">3-layer</p>
+                  <p className="mt-1 text-sm text-slate-600">Comparative KAN topology</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="rounded-[2rem] border-white/10 bg-white/[0.04] shadow-2xl">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-white">
-                <BarChart3 className="h-5 w-5 text-cyan-200" />
+              <CardTitle className="flex items-center gap-2 text-slate-900">
+                <BarChart3 className="h-5 w-5 text-slate-700" />
                 Recreated Paper Diagram
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-500">
                 KAN basis trade-off: efficiency versus accuracy
               </CardDescription>
             </CardHeader>
             <CardContent className="h-[360px] p-2 pr-6">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={kanTradeoff}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
-                  <XAxis dataKey="basis" stroke="#94a3b8" />
-                  <YAxis stroke="#94a3b8" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="basis" stroke="#64748b" />
+                  <YAxis stroke="#64748b" />
                   <Tooltip
                     contentStyle={{
-                      background: "#08111f",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      background: "#ffffff",
+                      border: "1px solid #e2e8f0",
                       borderRadius: 16,
+                      color: "#0f172a",
                     }}
                   />
-                  <Bar dataKey="efficiency" radius={[10, 10, 0, 0]} fill="#22d3ee" />
-                  <Bar dataKey="accuracyScore" radius={[10, 10, 0, 0]} fill="#a78bfa" />
+                  <Bar dataKey="efficiency" radius={[10, 10, 0, 0]} fill="#334155" />
+                  <Bar dataKey="accuracyScore" radius={[10, 10, 0, 0]} fill="#94a3b8" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -517,61 +578,62 @@ export default function FarahAymenPortfolio() {
         </section>
 
         <section className="mt-24 grid gap-8 xl:grid-cols-3">
-          <Card className="rounded-[2rem] border-white/10 bg-white/[0.04] shadow-2xl xl:col-span-2">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm xl:col-span-2">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-white">
-                <ShieldCheck className="h-5 w-5 text-cyan-200" />
+              <CardTitle className="flex items-center gap-2 text-slate-900">
+                <ShieldCheck className="h-5 w-5 text-slate-700" />
                 Deepfake Detection Results
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-500">
                 Spatial versus wavelet-domain performance
               </CardDescription>
             </CardHeader>
             <CardContent className="h-[320px] p-2 pr-6">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={deepfakeResults}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                   <XAxis
                     dataKey="model"
-                    stroke="#94a3b8"
+                    stroke="#64748b"
                     interval={0}
                     angle={-8}
                     textAnchor="end"
                     height={60}
                   />
-                  <YAxis domain={[80, 95]} stroke="#94a3b8" />
+                  <YAxis domain={[80, 95]} stroke="#64748b" />
                   <Tooltip
                     contentStyle={{
-                      background: "#08111f",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      background: "#ffffff",
+                      border: "1px solid #e2e8f0",
                       borderRadius: 16,
+                      color: "#0f172a",
                     }}
                   />
-                  <Bar dataKey="accuracy" radius={[10, 10, 0, 0]} fill="#34d399" />
+                  <Bar dataKey="accuracy" radius={[10, 10, 0, 0]} fill="#475569" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
           </Card>
 
-          <Card className="rounded-[2rem] border-white/10 bg-white/[0.04] shadow-2xl">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-white">
-                <Cpu className="h-5 w-5 text-cyan-200" />
+              <CardTitle className="flex items-center gap-2 text-slate-900">
+                <Cpu className="h-5 w-5 text-slate-700" />
                 Research Signal
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-500">
                 Why this portfolio is PhD-strong
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4 text-sm leading-7 text-slate-300">
+            <CardContent className="space-y-4 text-sm leading-7 text-slate-600">
               <p>Quantitative work in approximation-driven architecture design.</p>
               <p>
                 Evidence across time series, vision, generative AI, medical AI, and
                 graph learning.
               </p>
               <p>
-                Strong academic indicators: 4.0 GPA, valedictorian standing, Best
-                Paper distinction.
+                Strong academic indicators: 4.0 GPA in both undergraduate and
+                master&apos;s study, valedictorian standing, Best Paper distinction.
               </p>
               <p>Clear progression toward rigorous, theory-aware doctoral research.</p>
             </CardContent>
@@ -579,74 +641,76 @@ export default function FarahAymenPortfolio() {
         </section>
 
         <section className="mt-24 grid gap-8 xl:grid-cols-2">
-          <Card className="rounded-[2rem] border-white/10 bg-white/[0.04] shadow-2xl">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-white">
-                <Microscope className="h-5 w-5 text-cyan-200" />
+              <CardTitle className="flex items-center gap-2 text-slate-900">
+                <Microscope className="h-5 w-5 text-slate-700" />
                 Water Crystal Generation
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-500">
                 Loss profile reported for the VAE-GAN experiments
               </CardDescription>
             </CardHeader>
             <CardContent className="h-[320px] p-2 pr-6">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={waterCrystalLosses}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
-                  <XAxis dataKey="metric" stroke="#94a3b8" />
-                  <YAxis stroke="#94a3b8" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                  <XAxis dataKey="metric" stroke="#64748b" />
+                  <YAxis stroke="#64748b" />
                   <Tooltip
                     contentStyle={{
-                      background: "#08111f",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      background: "#ffffff",
+                      border: "1px solid #e2e8f0",
                       borderRadius: 16,
+                      color: "#0f172a",
                     }}
                   />
                   <Area
                     type="monotone"
                     dataKey="value"
-                    stroke="#22d3ee"
-                    fill="#22d3ee"
-                    fillOpacity={0.35}
+                    stroke="#334155"
+                    fill="#cbd5e1"
+                    fillOpacity={0.9}
                   />
                 </AreaChart>
               </ResponsiveContainer>
             </CardContent>
           </Card>
 
-          <Card className="rounded-[2rem] border-white/10 bg-white/[0.04] shadow-2xl">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-white">
-                <GraduationCap className="h-5 w-5 text-cyan-200" />
+              <CardTitle className="flex items-center gap-2 text-slate-900">
+                <GraduationCap className="h-5 w-5 text-slate-700" />
                 Breast Cancer Segmentation Review
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-500">
                 Visual summary of review themes and reported strength areas
               </CardDescription>
             </CardHeader>
             <CardContent className="h-[320px] p-2 pr-6">
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={breastCancerReview} outerRadius="72%">
-                  <PolarGrid stroke="rgba(255,255,255,0.12)" />
+                  <PolarGrid stroke="#cbd5e1" />
                   <PolarAngleAxis
                     dataKey="subject"
-                    tick={{ fill: "#cbd5e1", fontSize: 12 }}
+                    tick={{ fill: "#475569", fontSize: 12 }}
                   />
                   <PolarRadiusAxis
-                    tick={{ fill: "#94a3b8", fontSize: 10 }}
+                    tick={{ fill: "#64748b", fontSize: 10 }}
                     domain={[0, 100]}
                   />
                   <Radar
                     dataKey="score"
-                    stroke="#a78bfa"
-                    fill="#a78bfa"
-                    fillOpacity={0.35}
+                    stroke="#334155"
+                    fill="#cbd5e1"
+                    fillOpacity={0.55}
                   />
                   <Tooltip
                     contentStyle={{
-                      background: "#08111f",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      background: "#ffffff",
+                      border: "1px solid #e2e8f0",
                       borderRadius: 16,
+                      color: "#0f172a",
                     }}
                   />
                 </RadarChart>
@@ -656,25 +720,27 @@ export default function FarahAymenPortfolio() {
         </section>
 
         <section className="mt-24 grid gap-8 xl:grid-cols-[0.9fr_1.1fr]">
-          <Card className="rounded-[2rem] border-white/10 bg-white/[0.04] shadow-2xl">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="text-white">Experience Timeline</CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardTitle className="text-slate-900">Experience Timeline</CardTitle>
+              <CardDescription className="text-slate-500">
                 Research and academic development
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               {experience.map((item, idx) => (
                 <div key={item.title} className="relative pl-6">
-                  <div className="absolute left-0 top-2 h-3 w-3 rounded-full bg-cyan-300" />
+                  <div className="absolute left-0 top-2 h-3 w-3 rounded-full bg-slate-400" />
                   {idx !== experience.length - 1 && (
-                    <div className="absolute left-[5px] top-6 h-full w-px bg-white/10" />
+                    <div className="absolute left-[5px] top-6 h-full w-px bg-slate-200" />
                   )}
-                  <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
+                  <p className="text-sm uppercase tracking-[0.2em] text-slate-500">
                     {item.period}
                   </p>
-                  <h3 className="mt-1 text-lg font-semibold text-white">{item.title}</h3>
-                  <ul className="mt-3 space-y-2 text-sm text-slate-300">
+                  <h3 className="mt-1 text-lg font-semibold text-slate-900">
+                    {item.title}
+                  </h3>
+                  <ul className="mt-3 space-y-2 text-sm text-slate-600">
                     {item.bullets.map((bullet) => (
                       <li key={bullet}>• {bullet}</li>
                     ))}
@@ -684,10 +750,10 @@ export default function FarahAymenPortfolio() {
             </CardContent>
           </Card>
 
-          <Card className="rounded-[2rem] border-white/10 bg-white/[0.04] shadow-2xl">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="text-white">Technical Toolkit</CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardTitle className="text-slate-900">Technical Toolkit</CardTitle>
+              <CardDescription className="text-slate-500">
                 Methods, libraries, and research competencies
               </CardDescription>
             </CardHeader>
@@ -695,14 +761,14 @@ export default function FarahAymenPortfolio() {
               {skillGroups.map((group, i) => (
                 <div
                   key={i}
-                  className="rounded-3xl border border-white/10 bg-slate-950/40 p-5"
+                  className="rounded-3xl border border-slate-200 bg-slate-50 p-5"
                 >
                   <div className="flex flex-wrap gap-2">
                     {group.map((skill) => (
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="rounded-full bg-white/10 text-slate-100 hover:bg-white/10"
+                        className="rounded-full bg-white text-slate-700 border border-slate-200 hover:bg-white"
                       >
                         {skill}
                       </Badge>
@@ -715,38 +781,43 @@ export default function FarahAymenPortfolio() {
         </section>
 
         <section className="mt-24">
-          <Card className="rounded-[2rem] border-white/10 bg-gradient-to-r from-cyan-500/15 via-violet-500/10 to-transparent shadow-2xl">
+          <Card className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
               <div className="max-w-3xl">
-                <p className="text-sm uppercase tracking-[0.24em] text-cyan-100">
+                <p className="text-sm uppercase tracking-[0.24em] text-slate-500">
                   Open to PhD opportunities
                 </p>
-                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
                   Looking for doctoral research positions in machine learning, AI, and
                   structured learning systems.
                 </h2>
-                <p className="mt-4 text-slate-200 leading-7">
+                <p className="mt-4 text-slate-600 leading-7">
                   I am particularly interested in research environments that value
                   mathematical grounding, careful evaluation, interpretability, and
                   impactful machine learning applications.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button className="rounded-2xl bg-white text-slate-950 hover:bg-slate-100" asChild>
+                <Button className="rounded-xl bg-slate-900 text-white hover:bg-slate-800" asChild>
                   <a href={`mailto:${profile.email}`}>
                     Contact Me <ArrowUpRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
                 <Button
                   variant="outline"
-                  className="rounded-2xl border-white/15 bg-transparent text-slate-100 hover:bg-white/5"
+                  className="rounded-xl border-slate-300 bg-white text-slate-800 hover:bg-slate-50"
+                  asChild
                 >
-                  View CV
+                  <a href={profile.cv} target="_blank" rel="noreferrer">
+                    View CV
+                  </a>
                 </Button>
               </div>
             </CardContent>
           </Card>
         </section>
+          </div>
+        </div>
       </main>
     </div>
   );
